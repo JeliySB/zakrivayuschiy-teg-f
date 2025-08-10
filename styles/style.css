@@ -9,8 +9,298 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-Inter);
+  font-variation-settings: 'wght' var(--weight-reg);
+  background-image: repeating-linear-gradient(to  right, #d3d3d3 0px,#d3d3d3 2px, transparent 2px, transparent 4px),
+  repeating-linear-gradient(to bottom, #d3d3d3 0px,#d3d3d3 2px, transparent 2px, transparent 4px),
+  linear-gradient(to bottom, #e7e7e7 0.01%, #1a1a1a 100%);
+  background-size: cover;
+  background-attachment: fixed;
+  padding: 100px 0px;
+  margin: 0 auto;
+}
+
+/* Шапка*/
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  font-family: var(--font-PS2P);
+  font-weight: var(--weight-reg);
+  background-color: var(--main-white);
+  width: var(--block-width);
+  height: clamp(327px, calc(327px + 3.85vw), 368px);
+  color: var(--main-black);
+  border: 2px solid var(--main-black);
+  text-transform: uppercase;
+}
+
+.header_title {
+  font-size: var(--font-size-title);
+}
+
+.header_text {
+  font-size: var(--font-size-text);
+}
+
+.content {
+  margin: 0 auto;
+}
+
+/* Основной контент */
+
+.main_content {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  margin-top: 98px;
+  margin-bottom: 52px;
+}
+
+.card {
+  width: var(--block-width);
+  border: 2px solid var(--main-black);
+  background-color: var(--main-white);
+}
+
+.card_title {
+  font-size: var(--font-size);
+  font-variation-settings: 'wght' var(--weight-bold);
+  padding: 4px 10px;
+}
+
+.card_desc {
+  font-size: var(--font-size);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px;
+}
+
+.img {
+  border-top: 2px solid var(--main-black);
+  border-bottom: 2px solid var(--main-black);
+  min-width: 371px;
+  max-width: 100%;
+}
+
+.card_img {
+  position: relative;
+}
+
+.card-label {
+  position: absolute;
+  font-family: var(--font-PS2P);
+  font-size: 14px;
+  font-weight: var(--weight-reg);
+  top: 25px;
+  right: 25px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  -webkit-text-stroke: 1px var(--main-white);
+  text-shadow: 0 var(--main-white), 0 1px var(--main-white),
+    0 -1px var(--main-white), 1px 0 var(--main-white);
+  mix-blend-mode: hard-light;
+}
+
+/* Кнопки */
+
+.card_button {
+  display: flex;
+  align-self: flex-end;
+  gap: 30px;
+}
+
+.card__icon-button {
+  background-color: transparent;
+  border: 2px solid transparent;
+  width: 24px;
+  height: 27px;
+  padding: none;
+}
+
+.card__like-button {
+  background-color: var(--main-white);
+  border: 2px solid var(--main-black);
+  width: 130px;
+  height: 38px;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.button__text {
+  font-family: var(--font-PS2P);
+  font-size: 14px;
+  align-self: center;
+}
+
+.footer {
+  width: var(--block-width);
+}
+
+.save-button {
+  display: flex;
+  gap: 8px;
+  background-color: var(--main-white);
+  border: 2px solid var(--main-black);
+  padding: 17px 20px;
+  justify-self: center;
+  align-self: center;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.floppy {
+  width: 21px;
+  height: 21px;
+}
+
+/* Dialog*/
+
+.dialog {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: fixed;
+}
+
+.dialog_flex {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.floppy_dialog {
+  width: 39px;
+  height: 39px;
+}
+
+.dialog_text {
+  font-family: var(--font-PS2P);
+  font-size: 14px;
+  font-weight: var(--weight-reg);
+  line-height: 150%;
+  max-width: 234px;
+}
+
+.button_ok {
+  border: 2px solid var(--main-black);
+  background-color: var(--main-white);
+  line-height: 90%;
+  height: 38px;
+  text-transform: uppercase;
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.dialog::backdrop {
+  background: #000000;
+  opacity: 0.75;
+}
+
+.dialog:not([open]) {
+  display: none;
+}
+
+.card__icon-button:focus, 
+.card__like-button:focus,
+.save-button:focus,
+.button_ok:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--main-black);
+  transition: border-color 0.3s ease;
+}
+
+.card__like-button:focus-visible,
+.save-button:focus-visible,
+.button_ok:focus-visible{
+  box-shadow: 2px 2px 0 var(--main-black);
+}
+
+.button_ok::before,
+.save-button::before,
+.card__like-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: var(--main-black);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.button_ok:hover::before,
+.save-button:hover::before,
+.card__like-button:hover::before {
+  transform: translateX(0);
+}
+
+.save-button:hover .button__text,
+.save-button:hover .floppy {
+  color: var(--main-white);
+  fill: var(--main-white);
+  transition: color 0.5s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+.save-button:hover .floppy {
+  fill: var(--main-white);
+  transition: fill 0.5s ease-in-out;
+  mix-blend-mode: difference;
+  stroke: var(--main-white);
+}
+
+.card__like-button:hover .button__text,
+.button_ok:hover .button__text {
+  color: var(--main-white);
+  transition: color 0.5s ease-in-out;
+  mix-blend-mode: difference;
+}
+
+.filter1 {
+  filter: grayscale(100%) brightness(50%);
+}
+
+.filter2 {
+  filter: sepia(100%);
+}
+
+.filter3 {
+  filter: invert(100%);
+}
+
+.filter4 {
+  filter: contrast(200%);
+}
+
+.filter5 {
+  filter: blur(5px);
+}
+
+.filter6 {
+  filter: hue-rotate(180deg);
+}
+
+.filter7 {
+  filter: saturate(200%);
+}
+
+.filter8 {
+  filter: opacity(0.5);
 }

@@ -1,1 +1,24 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  
+  /* шрифты */
+  --font-Inter: 'Inter', 'monospace';
+  --font-PS2P: 'PressStart2P-Regular', 'Sans-Serif';
+  --weight-bold: 715;
+  --weight-reg: 410;
+  --font-size: 18px;
+  --button-text: 14px;
+  
+  /* Адаптивность */
+  --font-size-title: clamp(49px, calc(49px + 1.5023vw), 65px);
+  --font-size-text: clamp(14px, calc(14px + 0.845vw), 23px);
+  --block-width: clamp(375px, calc(375px + 30.52vw), 700px);
+  
+  /* цвета */
+  --main-black: #000000;
+  --main-white: #FFFFFF;
+
+  --name: #000000;
+  --animation-fill-color: #FF0000;
+  --contour-color: #FF0000;
+}
