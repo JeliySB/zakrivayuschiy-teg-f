@@ -123,6 +123,7 @@
   width: 24px;
   height: 27px;
   padding: none;
+  cursor: pointer;
 }
 
 .card__like-button {
@@ -133,6 +134,7 @@
   transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .button__text {
@@ -156,6 +158,7 @@
   transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .floppy {
@@ -201,6 +204,7 @@
   transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .dialog::backdrop {
