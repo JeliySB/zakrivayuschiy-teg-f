@@ -9,6 +9,15 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+
+@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff) {
+  .card-label {
+    text-stroke: 1px var(--main-white);
+    -webkit-text-stroke: 1px var(--main-white);
+    text-shadow: none;
+  }
+}
+
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
@@ -92,6 +101,7 @@
 
 .card_img {
   position: relative;
+  margin: 0;
 }
 
 .card-label {
@@ -230,7 +240,7 @@
 
 .card__like-button:focus-visible,
 .save-button:focus-visible,
-.button_ok:focus-visible{
+.button_ok:focus-visible {
   box-shadow: 2px 2px 0 var(--main-black);
 }
 
