@@ -2,8 +2,8 @@
 :root {
   
   /* шрифты */
-  --font-Inter: 'Inter', 'monospace';
-  --font-PS2P: 'PressStart2P-Regular', 'Sans-Serif';
+  --font-main: 'Inter', monospace;
+  --font-addit: 'PressStart2P', Sans-Serif;
   --weight-bold: 715;
   --weight-reg: 410;
   --font-size: 18px;

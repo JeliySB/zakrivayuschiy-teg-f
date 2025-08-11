@@ -9,19 +9,10 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-
-@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff) {
-  .card-label {
-    text-stroke: 1px var(--main-white);
-    -webkit-text-stroke: 1px var(--main-white);
-    text-shadow: none;
-  }
-}
-
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-Inter);
+  font-family: var(--font-main);
   font-variation-settings: 'wght' var(--weight-reg);
   background-image: repeating-linear-gradient(to  right, #d3d3d3 0px,#d3d3d3 2px, transparent 2px, transparent 4px),
   repeating-linear-gradient(to bottom, #d3d3d3 0px,#d3d3d3 2px, transparent 2px, transparent 4px),
@@ -40,14 +31,15 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  font-family: var(--font-PS2P);
+  font-family: var(--font-addit);
   font-weight: var(--weight-reg);
   background-color: var(--main-white);
   width: var(--block-width);
-  height: clamp(327px, calc(327px + 3.85vw), 368px);
   color: var(--main-black);
   border: 2px solid var(--main-black);
   text-transform: uppercase;
+  padding: clamp(60px, 9vw, 130px) clamp(40px, 8.5vw, 122.5px);
+  min-height: 327px;
 }
 
 .header_title {
@@ -60,6 +52,7 @@
 
 .content {
   margin: 0 auto;
+  max-width: 100%;
 }
 
 /* Основной контент */
@@ -69,7 +62,6 @@
   flex-direction: column;
   gap: 50px;
   margin-top: 98px;
-  margin-bottom: 52px;
 }
 
 .card {
@@ -106,74 +98,95 @@
 
 .card-label {
   position: absolute;
-  font-family: var(--font-PS2P);
+  font-family: var(--font-addit);
   font-size: 14px;
   font-weight: var(--weight-reg);
   top: 25px;
   right: 25px;
   opacity: 0.5;
   text-transform: uppercase;
-  -webkit-text-stroke: 1px var(--main-white);
   text-shadow: 0 var(--main-white), 0 1px var(--main-white),
     0 -1px var(--main-white), 1px 0 var(--main-white);
   mix-blend-mode: hard-light;
 }
 
+@supports (-webkit-text-stroke: 1px #fff) or (text-stroke: 1px #fff) {
+  .card-label {
+    text-stroke: 1px var(--main-white);
+    -webkit-text-stroke: 1px var(--main-white);
+    text-shadow: none;
+  }
+}
+
 /* Кнопки */
 
-.card_button {
+.button {
   display: flex;
-  align-self: flex-end;
-  gap: 30px;
-}
-
-.card__icon-button {
-  background-color: transparent;
-  border: 2px solid transparent;
-  width: 24px;
-  height: 27px;
-  padding: none;
-  cursor: pointer;
-}
-
-.card__like-button {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
   background-color: var(--main-white);
   border: 2px solid var(--main-black);
-  width: 130px;
-  height: 38px;
-  transition: box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  transition: box-shadow 0.3s ease;
 }
 
-.button__text {
-  font-family: var(--font-PS2P);
-  font-size: 14px;
-  align-self: center;
+.button_ok {
+  line-height: 90%;
+  height: 38px;
+  text-transform: uppercase;
 }
 
-.footer {
-  width: var(--block-width);
+.card__like-button {
+  width: 130px;
+  height: 38px;
 }
 
 .save-button {
   display: flex;
   gap: 8px;
-  background-color: var(--main-white);
-  border: 2px solid var(--main-black);
   padding: 17px 20px;
   justify-self: center;
   align-self: center;
-  transition: box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
+}
+
+.card_button {
+  display: flex;
+  align-self: flex-end;
+  justify-self: center;
+  gap: 10px;
+}
+
+.card__icon-button {
+  background-color: transparent;
   cursor: pointer;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+  max-height: 38px;
+  width: 40px;
+  border: 2px solid transparent;
+
+}
+
+.button__text {
+  font-family: var(--font-addit);
+  font-size: 14px;
+  align-self: center;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: var(--main-white);
 }
 
 .floppy {
   width: 21px;
   height: 21px;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  fill: var(--main-white);
 }
 
 /* Dialog*/
@@ -198,23 +211,11 @@
 }
 
 .dialog_text {
-  font-family: var(--font-PS2P);
+  font-family: var(--font-addit);
   font-size: 14px;
   font-weight: var(--weight-reg);
   line-height: 150%;
   max-width: 234px;
-}
-
-.button_ok {
-  border: 2px solid var(--main-black);
-  background-color: var(--main-white);
-  line-height: 90%;
-  height: 38px;
-  text-transform: uppercase;
-  transition: box-shadow 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
 }
 
 .dialog::backdrop {
@@ -227,94 +228,75 @@
 }
 
 .card__icon-button:focus, 
-.card__like-button:focus,
-.save-button:focus,
-.button_ok:focus {
+.button:focus {
   outline: none;
 }
 
 .card__icon-button:focus-visible {
   border: 2px solid var(--main-black);
-  transition: border-color 0.3s ease;
 }
 
-.card__like-button:focus-visible,
-.save-button:focus-visible,
-.button_ok:focus-visible {
+.button:focus-visible {
   box-shadow: 2px 2px 0 var(--main-black);
 }
 
-.button_ok::before,
-.save-button::before,
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background: var(--main-black);
+  background: #000000;
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
   z-index: 0;
 }
 
-.button_ok:hover::before,
-.save-button:hover::before,
-.card__like-button:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 
-.save-button:hover .button__text,
-.save-button:hover .floppy {
-  color: var(--main-white);
-  fill: var(--main-white);
-  transition: color 0.5s ease-in-out;
+.button:hover .button__text,
+.button:hover .floppy {
   mix-blend-mode: difference;
 }
 
-.save-button:hover .floppy {
-  fill: var(--main-white);
-  transition: fill 0.5s ease-in-out;
-  mix-blend-mode: difference;
-  stroke: var(--main-white);
-}
-
-.card__like-button:hover .button__text,
-.button_ok:hover .button__text {
-  color: var(--main-white);
-  transition: color 0.5s ease-in-out;
-  mix-blend-mode: difference;
-}
-
-.filter1 {
+.filtergrayscale {
   filter: grayscale(100%) brightness(50%);
 }
 
-.filter2 {
+.filter_sepia {
   filter: sepia(100%);
 }
 
-.filter3 {
+.filter_invert {
   filter: invert(100%);
 }
 
-.filter4 {
+.filter_contr {
   filter: contrast(200%);
 }
 
-.filter5 {
+.filter_blur {
   filter: blur(5px);
 }
 
-.filter6 {
+.filter_hue {
   filter: hue-rotate(180deg);
 }
 
-.filter7 {
+.filter_saturate {
   filter: saturate(200%);
 }
 
-.filter8 {
+.filter_opacity {
   filter: opacity(0.5);
 }
+
+@media screen and (width <= 375px) {
+  .save-button {
+    flex-direction: column;
+  }
+}
+
