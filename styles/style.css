@@ -38,8 +38,7 @@
   color: var(--main-black);
   border: 2px solid var(--main-black);
   text-transform: uppercase;
-  padding: clamp(60px, 9vw, 130px) clamp(40px, 8.5vw, 122.5px);
-  min-height: 327px;
+  padding: var(--head-padding)
 }
 
 .header_title {
@@ -60,7 +59,7 @@
 .main_content {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 52px;
   margin-top: 98px;
 }
 
@@ -82,6 +81,7 @@
   flex-direction: column;
   gap: 25px;
   padding: 25px;
+  margin-top: 3px;
 }
 
 .img {
@@ -94,6 +94,7 @@
 .card_img {
   position: relative;
   margin: 0;
+  max-height: 696px;
 }
 
 .card-label {
@@ -156,7 +157,7 @@
   display: flex;
   align-self: flex-end;
   justify-self: center;
-  gap: 10px;
+  gap: 7px;
 }
 
 .card__icon-button {
@@ -164,10 +165,10 @@
   cursor: pointer;
   transition: border-color 0.3s ease;
   box-sizing: border-box;
-  max-height: 38px;
+  height: 38px;
   width: 40px;
   border: 2px solid transparent;
-
+  padding: 0;
 }
 
 .button__text {
@@ -182,7 +183,6 @@
 
 .floppy {
   width: 21px;
-  height: 21px;
   position: relative;
   z-index: 1;
   mix-blend-mode: difference;
@@ -207,7 +207,6 @@
 
 .floppy_dialog {
   width: 39px;
-  height: 39px;
 }
 
 .dialog_text {
@@ -216,6 +215,7 @@
   font-weight: var(--weight-reg);
   line-height: 150%;
   max-width: 234px;
+  text-transform: uppercase;
 }
 
 .dialog::backdrop {
@@ -297,6 +297,15 @@
 @media screen and (width <= 375px) {
   .save-button {
     flex-direction: column;
+  }
+  .card_img {
+    max-height: 371px;
+  }
+  .floppy {
+  width: 26px;
+  }
+  .floppy_dialog {
+  width: 91px;
   }
 }
 
